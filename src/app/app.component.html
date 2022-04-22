@@ -1,0 +1,84 @@
+<div class="card">
+  <div class="card-title">
+    <h3>{{cronExpression}}</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="text-muted">
+          Every
+        </div>
+        <div class="form-group">
+             <select class="form-control" (change)="onChange($event.target?.value)">
+               <option *ngFor="let frequency of frequencies" [value]="frequency.value">
+                 {{frequency.label}}
+               </option>
+             </select>
+        </div>
+      </div>
+      <div class="col" *ngIf="showDayOfMonthValues">
+        <div class="text-muted">
+          {{preTextDayOfMonthValues}}
+        </div>
+        <div class="form-group" >
+          <select multiple class="form-control">
+            <option *ngFor="let value of dayOfMonthValues" [value]="value">
+              {{value}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col" *ngIf="showMonthValues">
+        <div class="text-muted">
+          {{preTextMonthValues}}
+        </div>
+        <div class="form-group">
+          <select multiple class="form-control">
+            <option *ngFor="let value of monthValues" [value]="value.value">
+              {{value.label}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col" *ngIf="showDayValues">
+        <div class="text-muted">
+          {{preTextDayValues}}
+        </div>
+        <div class="form-group">
+          <select multiple class="form-control">
+            <option *ngFor="let value of dayValues" [value]="value.value">
+              {{value.label}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col" *ngIf="showHourValues">
+        <div class="text-muted">
+          {{preTextHourValues}}
+        </div>
+        <div class="form-group">
+          <select multiple class="form-control" (click)="onHourChange()" [(ngModel)] =>
+            <option *ngFor="let value of hourValues" [value]="value">
+              {{value}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col" *ngIf="showMinuteValues">
+        <div class="text-muted">
+          {{preTextMinuteValues}}
+        </div>
+        <div class="form-group">
+          <select multiple class="form-control">
+            <option *ngFor="let value of minuteValues" [value]="value">
+              {{value}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
